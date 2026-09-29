@@ -1,0 +1,3220 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kake Da Hotel | Authentic North Indian Legacy | Malviya Nagar, New Delhi</title>
+  <meta name="description" content="Experience legendary North Indian flavours at Kake Da Hotel, Malviya Nagar. Serving timeless Dahi Meat, rich Dal Makhani, and tandoori delicacies since 1931.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* CSS RESET & SYSTEM VARIABLES */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-primary: #C2410C;
+      --color-primary-dark: #9A3412;
+      --color-primary-light: #EA580C;
+      --color-accent: #D97706;
+      --color-accent-gold: #F59E0B;
+      --color-accent-glow: #FBBF24;
+      --color-bg: #0F0D0C;
+      --color-surface: #171412;
+      --color-surface-card: #221C18;
+      --color-surface-hover: #2D2520;
+      --color-border: #3D332C;
+      --color-text: #F3ECE7;
+      --color-text-muted: #A89B91;
+      --color-cream: #FDF8F3;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.35);
+      --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.65);
+      --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+    }
+
+    body {
+      overflow-x: hidden;
+      line-height: 1.65;
+      background-color: var(--color-bg);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    button {
+      cursor: pointer;
+      font-family: inherit;
+      border: none;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-padding {
+      padding: 6.5rem 0;
+    }
+
+    /* TYPOGRAPHY HELPERS */
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.825rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--color-accent-gold);
+      font-weight: 700;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-eyebrow::before,
+    .section-eyebrow::after {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-accent-gold));
+    }
+    .section-eyebrow::after {
+      background: linear-gradient(90deg, var(--color-accent-gold), transparent);
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.1rem, 4vw, 3.35rem);
+      line-height: 1.2;
+      color: var(--color-cream);
+      margin-bottom: 1.25rem;
+      font-weight: 800;
+    }
+
+    .section-subtitle {
+      color: var(--color-text-muted);
+      font-size: 1.05rem;
+      max-width: 660px;
+      margin: 0 auto 3.5rem auto;
+      line-height: 1.7;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.85rem 1.85rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary-dark));
+      color: #FFF;
+      box-shadow: 0 4px 18px rgba(194, 65, 12, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(194, 65, 12, 0.65);
+      background: linear-gradient(135deg, #F97316, var(--color-primary));
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--color-cream);
+      border: 1px solid rgba(243, 236, 231, 0.22);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(217, 119, 6, 0.15);
+      border-color: var(--color-accent-gold);
+      color: var(--color-accent-gold);
+      transform: translateY(-2px);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #F59E0B, #B45309);
+      color: #120C06;
+      font-weight: 700;
+      box-shadow: 0 4px 18px rgba(245, 158, 11, 0.35);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.55);
+      background: linear-gradient(135deg, #FBBF24, #D97706);
+    }
+
+    /* NAVIGATION */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 13, 12, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      transition: var(--transition);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+    }
+
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-logo span.logo-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--color-cream);
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .brand-logo span.logo-sub {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-accent-gold);
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      position: relative;
+      padding: 0.35rem 0;
+      cursor: pointer;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--color-cream);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-primary-light), var(--color-accent-gold));
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-action {
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
+    }
+
+    .nav-phone {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-phone:hover {
+      color: var(--color-accent-gold);
+      border-color: var(--color-accent-gold);
+    }
+
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .hamburger-btn span {
+      display: block;
+      width: 26px;
+      height: 2.5px;
+      background: var(--color-cream);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .hamburger-btn.open span:nth-child(1) {
+      transform: translateY(7.5px) rotate(45deg);
+    }
+
+    .hamburger-btn.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger-btn.open span:nth-child(3) {
+      transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    /* MOBILE NAVIGATION DRAWER */
+    .mobile-nav-drawer {
+      position: fixed;
+      top: 84px;
+      left: 0;
+      width: 100%;
+      background: rgba(20, 16, 14, 0.98);
+      backdrop-filter: blur(18px);
+      padding: 2.2rem 1.5rem;
+      transform: translateY(-130%);
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 999;
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .mobile-nav-drawer.active {
+      transform: translateY(0);
+    }
+
+    .mobile-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .mobile-links a {
+      font-size: 1.25rem;
+      font-family: var(--font-serif);
+      color: var(--color-cream);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 84px);
+      display: flex;
+      align-items: center;
+      background: radial-gradient(circle at 75% 35%, rgba(217, 119, 6, 0.15) 0%, transparent 50%),
+                  linear-gradient(to right, rgba(15, 13, 12, 0.96) 25%, rgba(15, 13, 12, 0.72) 65%, rgba(15, 13, 12, 0.9) 100%),
+                  url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+      overflow: hidden;
+    }
+
+    .hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.6;
+    }
+
+    .hero-content {
+      max-width: 740px;
+      padding: 4.5rem 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: rgba(217, 119, 6, 0.15);
+      border: 1px solid rgba(217, 119, 6, 0.4);
+      padding: 0.45rem 1.15rem;
+      border-radius: 999px;
+      color: var(--color-accent-gold);
+      font-size: 0.825rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 20px rgba(217, 119, 6, 0.2);
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.75rem, 5.5vw, 4.6rem);
+      line-height: 1.12;
+      color: #FFF;
+      font-weight: 800;
+      margin-bottom: 1.35rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--color-accent-gold);
+      font-weight: 400;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      color: #E2D9D2;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 620px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    /* INTERACTIVE STATS / HIGHLIGHT BARS */
+    .hero-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .interactive-stat-bar {
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 1rem 1.15rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .interactive-stat-bar:hover {
+      background: rgba(217, 119, 6, 0.12);
+      border-color: var(--color-accent-gold);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .interactive-stat-bar .stat-num {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      color: var(--color-accent-gold);
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .interactive-stat-bar .stat-num i {
+      font-size: 1rem;
+      opacity: 0.6;
+      transition: var(--transition);
+    }
+
+    .interactive-stat-bar:hover .stat-num i {
+      opacity: 1;
+      transform: translateX(3px) scale(1.1);
+      color: var(--color-cream);
+    }
+
+    .interactive-stat-bar p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.35;
+    }
+
+    .stat-badge-hint {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--color-primary-light);
+      margin-top: 0.4rem;
+      font-weight: 600;
+    }
+
+    /* LIVE SEARCH & FILTER BAR */
+    .menu-controls-bar {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      padding: 0.5rem 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 860px;
+      margin: 0 auto 2.5rem auto;
+      gap: 1rem;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      flex: 1;
+      min-width: 220px;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input-wrapper i {
+      position: absolute;
+      left: 1.1rem;
+      color: var(--color-accent-gold);
+      font-size: 0.95rem;
+    }
+
+    .search-input-wrapper input {
+      width: 100%;
+      background: rgba(15, 13, 12, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      padding: 0.65rem 1rem 0.65rem 2.6rem;
+      color: var(--color-cream);
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-input-wrapper input:focus {
+      border-color: var(--color-accent-gold);
+      box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.2);
+    }
+
+    .dietary-filters {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .diet-chip {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: var(--transition);
+    }
+
+    .diet-chip:hover {
+      color: var(--color-cream);
+      border-color: var(--color-accent-gold);
+    }
+
+    .diet-chip.active {
+      background: var(--color-primary-dark);
+      border-color: var(--color-primary-light);
+      color: #FFF;
+    }
+
+    /* MENU SECTION */
+    .menu-section {
+      background-color: var(--color-surface);
+      position: relative;
+    }
+
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .menu-tab-btn {
+      background: var(--color-surface-card);
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border);
+      padding: 0.75rem 1.6rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    .menu-tab-btn:hover {
+      color: var(--color-cream);
+      border-color: var(--color-accent-gold);
+      transform: translateY(-2px);
+    }
+
+    .menu-tab-btn.active {
+      background: var(--color-primary);
+      color: #FFF;
+      border-color: var(--color-primary);
+      box-shadow: 0 4px 15px rgba(194, 65, 12, 0.35);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 2rem;
+    }
+
+    /* DISH CARD AS INTERACTIVE BAR / TILE */
+    .menu-card {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      padding: 1.65rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--color-accent-gold);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      background: var(--color-surface-hover);
+    }
+
+    .menu-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.6rem;
+      gap: 0.75rem;
+    }
+
+    .dish-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--color-cream);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .dish-price {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--color-accent-gold);
+      white-space: nowrap;
+    }
+
+    .dish-desc {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+    }
+
+    .dish-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      padding: 0.22rem 0.65rem;
+      border-radius: 4px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-veg {
+      background: rgba(34, 197, 94, 0.12);
+      color: #4ADE80;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+
+    .badge-nonveg {
+      background: rgba(239, 68, 68, 0.12);
+      color: #F87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .badge-spicy {
+      background: rgba(249, 115, 22, 0.12);
+      color: #FB923C;
+      border: 1px solid rgba(249, 115, 22, 0.3);
+    }
+
+    .badge-gf {
+      background: rgba(234, 179, 8, 0.12);
+      color: #FDE047;
+      border: 1px solid rgba(234, 179, 8, 0.3);
+    }
+
+    .badge-special {
+      background: rgba(194, 65, 12, 0.2);
+      color: #FF8A4C;
+      border: 1px solid rgba(194, 65, 12, 0.4);
+    }
+
+    /* INTERACTIVE DISH ACTION BAR */
+    .dish-action-bar {
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+      padding-top: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.825rem;
+      color: var(--color-accent-gold);
+      font-weight: 600;
+    }
+
+    .dish-action-bar .action-text {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: var(--transition);
+    }
+
+    .menu-card:hover .dish-action-bar .action-text {
+      color: var(--color-cream);
+      transform: translateX(4px);
+    }
+
+    .dish-action-bar .order-quick-btn {
+      background: rgba(217, 119, 6, 0.2);
+      border: 1px solid rgba(217, 119, 6, 0.4);
+      color: var(--color-accent-gold);
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      transition: var(--transition);
+    }
+
+    .dish-action-bar .order-quick-btn:hover {
+      background: var(--color-primary);
+      color: #FFF;
+      border-color: var(--color-primary);
+    }
+
+    /* INTERACTIVE MODAL (FOR DETAILED DISH BAR CLICK & INFO) */
+    .dish-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 8, 7, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 2200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .dish-modal-backdrop.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .dish-modal-content {
+      background: var(--color-surface);
+      border: 1px solid var(--color-accent-gold);
+      border-radius: var(--radius-lg);
+      max-width: 640px;
+      width: 100%;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      position: relative;
+      overflow: hidden;
+      transform: translateY(30px) scale(0.96);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .dish-modal-backdrop.active .dish-modal-content {
+      transform: translateY(0) scale(1);
+    }
+
+    .dish-modal-header {
+      padding: 2rem 2rem 1.25rem 2rem;
+      background: linear-gradient(to bottom, rgba(217, 119, 6, 0.1), transparent);
+      border-bottom: 1px solid var(--color-border);
+      position: relative;
+    }
+
+    .dish-modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--color-cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .dish-modal-close:hover {
+      background: var(--color-primary);
+      transform: rotate(90deg);
+    }
+
+    .dish-modal-body {
+      padding: 1.75rem 2rem;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    .dish-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+
+    .dish-feature-box {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border);
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .dish-feature-box .label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent-gold);
+      margin-bottom: 0.2rem;
+    }
+
+    .dish-feature-box .value {
+      font-size: 0.95rem;
+      color: var(--color-cream);
+      font-weight: 600;
+    }
+
+    .dish-modal-footer {
+      padding: 1.25rem 2rem;
+      background: rgba(0, 0, 0, 0.35);
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    /* ABOUT SECTION & HERITAGE ACCORDION BARS */
+    .about-section {
+      background: var(--color-bg);
+      position: relative;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4.5rem;
+      align-items: center;
+    }
+
+    .about-image-wrapper {
+      position: relative;
+    }
+
+    .about-main-img {
+      border-radius: var(--radius-lg);
+      width: 100%;
+      height: 540px;
+      object-fit: cover;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+    }
+
+    .about-badge-card {
+      position: absolute;
+      bottom: -25px;
+      right: -20px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-accent-gold);
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      max-width: 240px;
+    }
+
+    .about-badge-card .years {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--color-accent-gold);
+      line-height: 1;
+    }
+
+    .about-badge-card p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-top: 0.35rem;
+    }
+
+    /* INTERACTIVE HERITAGE ACCORDION BARS */
+    .heritage-bars-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-top: 2rem;
+    }
+
+    .heritage-bar-item {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .heritage-bar-item:hover,
+    .heritage-bar-item.active {
+      border-color: var(--color-accent-gold);
+      background: var(--color-surface-hover);
+    }
+
+    .heritage-bar-header {
+      padding: 1.1rem 1.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      user-select: none;
+    }
+
+    .heritage-bar-title {
+      font-family: var(--font-serif);
+      font-size: 1.08rem;
+      color: var(--color-cream);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 600;
+    }
+
+    .heritage-bar-title i {
+      color: var(--color-accent-gold);
+      font-size: 1.15rem;
+    }
+
+    .heritage-bar-toggle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--color-accent-gold);
+      transition: var(--transition);
+    }
+
+    .heritage-bar-item.active .heritage-bar-toggle {
+      transform: rotate(180deg);
+      background: var(--color-primary);
+      color: #FFF;
+    }
+
+    .heritage-bar-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
+      padding: 0 1.35rem;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    .heritage-bar-item.active .heritage-bar-body {
+      max-height: 200px;
+      padding: 0 1.35rem 1.25rem 1.35rem;
+    }
+
+    /* GALLERY SECTION */
+    .gallery-section {
+      background: var(--color-surface);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 240px;
+      gap: 1.25rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid var(--color-border);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-item.span-2-row {
+      grid-row: span 2;
+    }
+
+    .gallery-item.span-2-col {
+      grid-column: span 2;
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 13, 12, 0.92) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.4rem;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-caption {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: #FFF;
+      font-weight: 600;
+    }
+
+    .gallery-tag {
+      font-size: 0.75rem;
+      color: var(--color-accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .gallery-click-hint {
+      font-size: 0.72rem;
+      color: #FFF;
+      margin-top: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      opacity: 0.85;
+    }
+
+    /* LIGHTBOX MODAL */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.96);
+      z-index: 2500;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-content {
+      max-width: 900px;
+      max-height: 85vh;
+      position: relative;
+      text-align: center;
+    }
+
+    .lightbox-content img {
+      max-height: 75vh;
+      border-radius: var(--radius-md);
+      margin: 0 auto;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    }
+
+    .lightbox-caption-text {
+      margin-top: 1.25rem;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--color-cream);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -3.2rem;
+      right: 0;
+      background: none;
+      border: none;
+      color: #FFF;
+      font-size: 2.2rem;
+      cursor: pointer;
+    }
+
+    /* RESERVATION SECTION */
+    .reservation-section {
+      background: linear-gradient(rgba(15, 13, 12, 0.9), rgba(15, 13, 12, 0.95)),
+                  url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=80') center/cover fixed no-repeat;
+      position: relative;
+    }
+
+    .reservation-container {
+      max-width: 840px;
+      margin: 0 auto;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 3.25rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.35rem;
+      margin-top: 2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      color: var(--color-text);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .form-control {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border);
+      color: var(--color-cream);
+      padding: 0.85rem 1.15rem;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--color-accent-gold);
+      box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.25);
+    }
+
+    select.form-control option {
+      background-color: var(--color-surface-card);
+      color: var(--color-cream);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* REVIEWS SECTION & INTERACTIVE FILTER BARS */
+    .reviews-section {
+      background: var(--color-surface);
+    }
+
+    .reviews-bar-summary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 2rem;
+      max-width: 680px;
+      margin: 0 auto 3rem auto;
+      flex-wrap: wrap;
+    }
+
+    .reviews-bar-summary .score {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--color-accent-gold);
+      line-height: 1;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .review-card {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 2.25rem 1.85rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .review-card:hover {
+      border-color: var(--color-accent-gold);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .review-card::before {
+      content: '\201C';
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-family: var(--font-serif);
+      font-size: 4.5rem;
+      color: rgba(217, 119, 6, 0.15);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .review-stars {
+      color: var(--color-accent-gold);
+      display: flex;
+      gap: 0.25rem;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .review-body {
+      color: #E2D9D2;
+      font-size: 0.975rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .reviewer-info {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      border-top: 1px solid var(--color-border);
+      padding-top: 1.15rem;
+    }
+
+    .reviewer-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--color-primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #FFF;
+      font-size: 1rem;
+      border: 1px solid var(--color-accent-gold);
+    }
+
+    .reviewer-name {
+      font-weight: 700;
+      color: var(--color-cream);
+      font-size: 0.95rem;
+    }
+
+    .reviewer-meta {
+      font-size: 0.775rem;
+      color: var(--color-text-muted);
+    }
+
+    /* QUICK BANQUET / CATERING BAR */
+    .cta-banner-bar {
+      margin-top: 4rem;
+      background: linear-gradient(135deg, rgba(194, 65, 12, 0.25), rgba(217, 119, 6, 0.15));
+      border: 1px solid var(--color-accent-gold);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-banner-bar h3 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--color-cream);
+      margin-bottom: 0.35rem;
+    }
+
+    .cta-banner-bar p {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #090807;
+      border-top: 1px solid var(--color-border);
+      padding: 5rem 0 2rem 0;
+      color: var(--color-text-muted);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .footer-brand .brand-logo {
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      max-width: 320px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.85rem;
+    }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-cream);
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #FFF;
+      transform: translateY(-3px);
+    }
+
+    .footer-heading {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--color-cream);
+      margin-bottom: 1.25rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 28px;
+      height: 2px;
+      background: var(--color-accent-gold);
+    }
+
+    .hours-table {
+      width: 100%;
+      font-size: 0.875rem;
+      border-collapse: collapse;
+    }
+
+    .hours-table td {
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .hours-table td:last-child {
+      text-align: right;
+      color: var(--color-cream);
+      font-weight: 500;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .contact-item i {
+      color: var(--color-accent-gold);
+      margin-top: 0.25rem;
+    }
+
+    .map-preview {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #1e1b18;
+      height: 140px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      background-image: radial-gradient(#3a332d 1px, transparent 1px);
+      background-size: 16px 16px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .map-preview:hover {
+      border-color: var(--color-accent-gold);
+      transform: translateY(-2px);
+    }
+
+    .map-preview i {
+      font-size: 1.8rem;
+      color: var(--color-primary-light);
+      margin-bottom: 0.4rem;
+    }
+
+    .map-preview span {
+      font-size: 0.825rem;
+      color: var(--color-cream);
+      font-weight: 600;
+    }
+
+    .map-preview a {
+      font-size: 0.75rem;
+      color: var(--color-accent-gold);
+      text-decoration: underline;
+      margin-top: 0.25rem;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    /* STICKY BOTTOM BAR FOR MOBILE */
+    .mobile-bottom-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(15, 13, 12, 0.96);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--color-border);
+      padding: 0.75rem 1.25rem;
+      z-index: 998;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.5);
+    }
+
+    .mobile-bottom-bar-inner {
+      display: flex;
+      gap: 0.85rem;
+      align-items: center;
+    }
+
+    .mobile-bottom-bar .btn {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* FLOATING QUICK FEAST BAR */
+    .floating-feast-bar {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: linear-gradient(135deg, var(--color-surface), #261f1a);
+      border: 1px solid var(--color-accent-gold);
+      border-radius: 999px;
+      padding: 0.65rem 1.25rem 0.65rem 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      z-index: 990;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      transition: var(--transition);
+      transform: translateY(120px);
+      opacity: 0;
+    }
+
+    .floating-feast-bar.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .floating-feast-bar:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 35px rgba(245, 158, 11, 0.35);
+    }
+
+    .feast-count-bubble {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+
+    /* TOAST NOTIFICATION */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #15803d;
+      color: #FFF;
+      padding: 1rem 1.75rem;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 3000;
+      transform: translateY(150%);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      font-weight: 500;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* GSAP ANIMATION PREPARATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .about-grid {
+        gap: 3rem;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery-item.span-2-col {
+        grid-column: span 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section-padding {
+        padding: 4.5rem 0;
+      }
+      .nav-links, .nav-action .btn, .nav-phone {
+        display: none;
+      }
+      .hamburger-btn {
+        display: flex;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-image-wrapper {
+        order: -1;
+      }
+      .about-main-img {
+        height: 380px;
+      }
+      .about-badge-card {
+        right: 15px;
+        bottom: -20px;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+      .reservation-container {
+        padding: 2rem 1.25rem;
+      }
+      .hero-highlights {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .mobile-bottom-bar {
+        display: block;
+      }
+      .floating-feast-bar {
+        bottom: 5.5rem;
+        right: 1rem;
+      }
+      body {
+        padding-bottom: 70px;
+      }
+      .cta-banner-bar {
+        padding: 1.75rem 1.25rem;
+        text-align: center;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.25rem;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 220px;
+      }
+      .gallery-item.span-2-row {
+        grid-row: span 1;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.85rem;
+        text-align: center;
+      }
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+      .dish-feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY TOP NAV -->
+  <header class="header" id="topNav">
+    <div class="container navbar">
+      <a href="#home" class="brand-logo" aria-label="Kake Da Hotel Home">
+        <span class="logo-title">
+          <i class="fa-solid fa-crown" style="color: var(--color-accent-gold); font-size: 1.15rem;"></i> 
+          Kake Da Hotel
+        </span>
+        <span class="logo-sub">Malviya Nagar • Est. 1931</span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#menu" class="nav-link">Menu &amp; Specials</a></li>
+          <li><a href="#about" class="nav-link">Heritage Legacy</a></li>
+          <li><a href="#reservations" class="nav-link">Reservations</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-action">
+        <a href="tel:+919811234567" class="nav-phone" aria-label="Call Kake Da Hotel">
+          <i class="fa-solid fa-phone" style="color: var(--color-accent-gold);"></i>
+          <span>+91 98112 34567</span>
+        </a>
+        <a href="#reservations" class="btn btn-primary">Book a Table</a>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <ul class="mobile-links">
+      <li><a href="#home" class="mob-link">Home <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="#menu" class="mob-link">Our Heritage Menu <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="#about" class="mob-link">Our Story &amp; Legacy <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="#reservations" class="mob-link">Reserve a Table <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="#gallery" class="mob-link">Visual Feast <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="#reviews" class="mob-link">Guest Stories <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="#contact" class="mob-link">Find Us <i class="fa-solid fa-chevron-right"></i></a></li>
+    </ul>
+    <a href="tel:+919811234567" class="btn btn-secondary" style="width: 100%; margin-bottom: 1rem;">
+      <i class="fa-solid fa-phone"></i> Call: +91 98112 34567
+    </a>
+    <a href="#reservations" class="btn btn-primary mob-link" style="width: 100%;">
+      Book Table Online
+    </a>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+      <!-- Ambient Canvas Particles -->
+      <canvas id="heroCanvas" class="hero-canvas"></canvas>
+
+      <div class="container">
+        <div class="hero-content reveal">
+          <div class="hero-badge">
+            <i class="fa-solid fa-fire-burner"></i> Delhi's Iconic Mughlai &amp; Punjabi Royalty
+          </div>
+          
+          <h1 class="hero-title">Timeless Flavours &amp; Rich Punjabi <em>Royalty</em> in Malviya Nagar</h1>
+          
+          <p class="hero-tagline">
+            Famous for our legendary Dahi Meat and slow-simmered brass handi curries. Continuing nine decades of Delhi indulgence crafted with uncompromised desi ghee and ancestral whole spices.
+          </p>
+          
+          <div class="hero-buttons">
+            <a href="#menu" class="btn btn-primary">
+              <i class="fa-solid fa-utensils"></i> Explore Menu &amp; Stories
+            </a>
+            <a href="#reservations" class="btn btn-secondary">
+              <i class="fa-solid fa-calendar-check"></i> Reserve a Table
+            </a>
+          </div>
+
+          <!-- Interactive Highlights / Clickable Information Bars -->
+          <div class="hero-highlights">
+            <div class="interactive-stat-bar" data-info="legacy">
+              <div class="stat-num">
+                <span>93+</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </div>
+              <p>Years of Unbroken Culinary Heritage (Est. 1931)</p>
+              <span class="stat-badge-hint"><i class="fa-solid fa-circle-info"></i> Click to read story</span>
+            </div>
+
+            <div class="interactive-stat-bar" data-info="purity">
+              <div class="stat-num">
+                <span>100%</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </div>
+              <p>Pure Desi Ghee &amp; Hand-ground Potli Spices</p>
+              <span class="stat-badge-hint"><i class="fa-solid fa-circle-info"></i> View spice secrets</span>
+            </div>
+
+            <div class="interactive-stat-bar" data-info="rating">
+              <div class="stat-num">
+                <span>4.8 ★</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </div>
+              <p>Over 18,500 Happy Food Connoisseurs</p>
+              <span class="stat-badge-hint"><i class="fa-solid fa-circle-info"></i> Read guest reviews</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section class="menu-section section-padding" id="menu">
+      <div class="container">
+        <div class="text-center reveal">
+          <span class="section-eyebrow">Culinary Masterpieces</span>
+          <h2 class="section-title">The Heritage Menu</h2>
+          <p class="section-subtitle">
+            Every dish is cooked over gentle charcoal embers in heavy copper and brass deghs. Click any dish card to view secret cooking rituals, spice meters, and pairings.
+          </p>
+
+          <!-- Search & Filter Controls Bar -->
+          <div class="menu-controls-bar">
+            <div class="search-input-wrapper">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="menuSearchInput" placeholder="Search dish, mutton, chicken, paneer, biryani...">
+            </div>
+
+            <div class="dietary-filters">
+              <button class="diet-chip active" data-diet="all">All Dishes</button>
+              <button class="diet-chip" data-diet="veg"><i class="fa-solid fa-seedling" style="color: #4ade80;"></i> Veg</button>
+              <button class="diet-chip" data-diet="nonveg"><i class="fa-solid fa-drumstick-bite" style="color: #f87171;"></i> Non-Veg</button>
+            </div>
+          </div>
+
+          <!-- Category Navigation Tabs -->
+          <div class="menu-tabs">
+            <button class="menu-tab-btn active" data-filter="mains">
+              <i class="fa-solid fa-bowl-food"></i> Signature Mains
+            </button>
+            <button class="menu-tab-btn" data-filter="appetizers">
+              <i class="fa-solid fa-fire"></i> Tandoor &amp; Starters
+            </button>
+            <button class="menu-tab-btn" data-filter="breads">
+              <i class="fa-solid fa-bread-slice"></i> Breads &amp; Rice
+            </button>
+            <button class="menu-tab-btn" data-filter="desserts">
+              <i class="fa-solid fa-ice-cream"></i> Desserts &amp; Drinks
+            </button>
+            <button class="menu-tab-btn" data-filter="all">
+              <i class="fa-solid fa-list"></i> Full Royal Spread
+            </button>
+          </div>
+        </div>
+
+        <!-- Dishes Grid -->
+        <div class="menu-grid" id="menuContainer">
+          
+          <!-- Item 1: Dahi Meat (Signature) -->
+          <article class="menu-card reveal" 
+                   data-category="mains" 
+                   data-diet="nonveg" 
+                   data-id="dahi-meat"
+                   data-title="Dahi Meat (Handi Special)"
+                   data-price="₹495"
+                   data-spice="Medium Spiced (3/5)"
+                   data-cooking="4-Hour Slow Copper Handi"
+                   data-pairing="Mughlai Khamiri Roti &amp; Sirka Pyaz"
+                   data-desc="The legendary slow-cooked tender goat meat stewed in hand-whipped sweet curd, whole potli spices, and clarified desi ghee. A celebrated heirloom recipe unvaried since 1931."
+                   data-secret="Tenderized exclusively in curd without tomatoes, releasing natural collagen and thick gravy richness over charcoal embers.">
+            <div>
+              <div class="menu-card-header">
+                <h3 class="dish-title">
+                  <i class="fa-solid fa-crown" style="color: var(--color-accent-gold);"></i> 
+                  Dahi Meat (Handi Special)
+                </h3>
+                <span class="dish-price">₹495</span>
+              </div>
+              <p class="dish-desc">
+                The legendary slow-cooked tender goat meat stewed in whipped curd, whole spices, and desi ghee. A celebrated recipe unvaried since 1931.
+              </p>
+              <div class="dish-badges">
+                <span class="badge badge-special"><i class="fa-solid fa-crown"></i> House Legend</span>
+                <span class="badge badge-nonveg"><i class="fa-solid fa-circle"></i> Non-Veg</span>
+                <span class="badge badge-gf">GF</span>
+              </div>
+            </div>
+            <div class="dish-action-bar">
+              <span class="action-text"><i class="fa-solid fa-circle-info"></i> Click for secret recipe details</span>
+              <button class="order-quick-btn" title="Add to Royal Feast"><i class="fa-solid fa-plus"></i> Select</button>
+            </div>
+          </article>
+
+          <!-- Item 2: Butter Chicken -->
+          <article class="menu-card reveal" 
+                   data-category="mains" 
+                   data-diet="nonveg"
+                   data-id="butter-chicken"
+                   data-title="Kake Special Butter Chicken"
+                   data-price="₹480"
+                   data-spice="Mild &amp; Velvety (1.5/5)"
+                   data-cooking="Tandoor Charred + Butter Simmered"
+                   data-pairing="Butter Garlic Naan &amp; Mint Chutney"
+                   data-desc="Charcoal-smoked boneless chicken roasted in a velvet makhani gravy enriched with fresh churned white butter, kasuri methi, and wild honey undertones."
+                   data-secret="Slow-reduced ripe San Marzano style hill tomatoes, cooked with 100% real dairy butter and roasted fenugreek leaves.">
+            <div>
+              <div class="menu-card-header">
+                <h3 class="dish-title">Kake Special Butter Chicken</h3>
+                <span class="dish-price">₹480</span>
+              </div>
+              <p class="dish-desc">
+                Charcoal-smoked boneless chicken roasted in a velvet makhani gravy enriched with fresh churned butter, kasuri methi, and wild honey undertones.
+              </p>
+              <div class="dish-badges">
+                <span class="badge badge-special">Iconic</span>
+                <span class="badge badge-nonveg"><i class="fa-solid fa-circle"></i> Non-Veg</span>
+                <span class="badge badge-gf">GF</span>
+              </div>
+            </div>
+            <div class="dish-action-bar">
+              <span class="action-text"><i class="fa-solid fa-circle-info"></i> Click for recipe details</span>
+              <button class="order-quick-btn" title="Add to Royal Feast"><i class="fa-solid fa-plus"></i> Select</button>
+            </div>
+          </article>
+
+          <!-- Item 3: Dal Makhani -->
+          <article class="menu-card reveal" 
+                   data-category="mains" 
+                   data-diet="veg"
+                   data-id="dal-makhani"
+                   data-title="Brass-Degh Dal Makhani"
+                   data-price="₹360"
+                   data-spice="Mild &amp; Creamy (1/5)"
+                   data-cooking="16-Hour Overnight Charcoal Simmer"
+                   data-pairing="Tandoori Laccha Paratha &amp; Boondi Raita"
+                   data-desc="Black urad lentils simmered overnight for 16 hours over glowing charcoal embers, finished with farm cream and churned white butter."
+                   data-secret="Continuous wooden paddle stirring infuses delicate smoky wood flavors without artificial coloring.">
+            <div>
+              <div class="menu-card-header">
+                <h3 class="dish-title">Brass-Degh Dal Makhani</h3>
+                <span class="dish-price">₹360</span>
+              </div>
+              <p class="dish-desc">
+                Black urad lentils simmered overnight for 16 hours over glowing charcoal embers, finished with farm cream and churned white butter.
+              </p>
+              <div class="dish-badges">
+                <span class="badge badge-veg"><i class="fa-solid fa-seedling"></i> Veg</span>
+                <span class="badge badge-gf">GF</span>
+                <span class="badge badge-special">Slow Cooked</span>
+              </div>
+            </div>
+            <div class="dish-action-bar">
+              <span class="action-text"><i class="fa-solid fa-circle-info"></i> Click for secret recipe details</span>
+              <button class="order-quick-btn" title="Add to Royal Feast"><i class="fa-solid fa-plus"></i> Select</button>
+            </div>
+          </article>
+
+          <!-- Item 4: Keema Kaleji -->
+          <article class="menu-card reveal" 
+                   data-category="mains" 
+                   data-diet="nonveg"
+                   data-id="keema-kaleji"
+                   data-title="Bhuna Keema Kaleji"
+                   data-price="₹460"
+                   data-spice="Bold &amp; Spicy (4/5)"
+                   data-cooking="Cast-Iron Bhuna on High Flame"
+                   data-pairing="Roomali Roti &amp; Green Chillies"
+                   data-desc="Hand-minced prime mutton and fresh liver stir-cooked with freshly pounded Mathania red chillies, caramelized onions, and roasted garlic cloves."
+                   data-secret="Double-sautéed in iron kadhai to lock in rich iron nuances and succulent liver texture.">
+            <div>
+              <div class="menu-card-header">
+                <h3 class="dish-title">Bhuna Keema Kaleji</h3>
+                <span class="dish-price">₹460</span>
+              </div>
+              <p class="dish-desc">
+                Hand-minced prime mutton and liver stir-cooked with freshly pounded red chillies, caramelized onions, and garlic pods.
+              </p>
+              <div class="dish-badges">
+                <span class="badge badge-spicy"><i class="fa-solid fa-pepper-hot"></i> Spicy</span>
+                <span class="badge badge-nonveg"><i class="fa-solid fa-circle"></i> Non-Veg</span>
+              </div>
+            </div>
+            <div class="dish-action-bar">
+              <span class="action-text"><i class="fa-solid fa-circle-info"></i> Click for recipe details</span>
+              <button class="order-quick-btn" title="Add to Royal Feast"><i class="fa-solid fa-plus"></i> Select</button>
+            </div>
+          </article>
+
+          <!-- Item 5: Paneer Tikka Lababdar -->
+          <article class="menu-card reveal" 
+                   data-category="mains" 
+                   data-diet="veg"
+                   data-id="paneer-lababdar"
+                   data-title="Paneer Tikka Lababdar"
+                   data-price="₹380"
+                   data-spice="Medium (2.5/5)"
+                   data-cooking="Clay Oven Sear + Rich Gravy"
+                   data-pairing="Butter Naan &amp; Onion Relish"
+                   data-desc="Char-grilled malai paneer cubes tossed in a chunky tomato, roasted onion, and melon seed reduction with fresh coriander juliennes."
+                   data-secret="Fresh buffalo milk cottage cheese hand-crafted daily and smoked with star anise and butter embers.">
+            <div>
+              <div class="menu-card-header">
+                <h3 class="dish-title">Paneer Tikka Lababdar</h3>
+                <span class="dish-price">₹380</span>
+              </div>
+              <p class="dish-desc">
+                Char-grilled malai paneer cubes tossed in a chunky tomato, onion, and melon seed reduction with fresh coriander juliennes.
+              </p>
+              <div class="dish-badges">
+                <span class="badge badge-veg"><i class="fa-solid fa-seedling"></i> Veg</span>
+                <span class="badge badge-gf">GF</span>
+              </div>
+            </div>
+            <div class="dish-action-bar">
+              <span class="action-text"><i class="fa-solid fa-circle-info"></i> Click for recipe details</span>
+              <button class="order-quick-btn" title="Add to Royal Feast"><i class="fa-solid fa-plus"></i> Select</button>
+            </div>
+          </article>
+
+          <!-- Item 6: Bhatti Murgh (Appetizer) -->
+          <article class="menu-card reveal" 
+                   data-category="appetizers" 
+                   data-diet="nonveg"
+                   data-id="bhatti-murgh"
+                   data-title="Old Delhi Bhatti Ka Murgh"
+                   data-price="₹440"
+                   data-spice="Zesty &amp; Smoky (3.5/5)"
+                   data-cooking="Authentic Clay Bhatti"
+                   data-pairing="Lachha Pyaz &amp; Mint Dip"
+                   data-desc="Spring chicken double-marinated in mustard oil, roasted cumin, and black cardamom, charred to juicy perfection in open clay bhatti."
+                   data-secret="24-hour hung curd soak preserves meat moisture while the coal heat caramelizes the outer crust.">
+            <div>
+              <div class="menu-card-header">
+                <h3 class="dish-title">Old Delhi Bhatti Ka Murgh</h3>
+                <span class="dish-price">₹440</span>
+              </div>
+              <p class="dish-desc">
+                Spring chicken marinated in mustard oil, roasted cumin, and black cardamom, charred to juicy perfection in clay tandoor.
+              </p>
+              <div class="dish-badges">
+                <span class="badge badge-nonveg"><i class="fa-solid fa-circle"></i> Non-Veg</span>
+                <span class="badge badge-spicy"><i class="fa-solid fa-pepper-hot"></i> Medium Spicy</span>
+                <span class="badge badge-gf">GF</span>
+              </div>
+            </div>
+            <div class="dish-action-bar">
+              <span class="action-text"><i class="fa-solid fa-circle-info"></i> Click for recipe details</span>
+              <button class="order-quick-btn" title="Add to Royal Feast"><i class="fa-solid fa-plus"></i> Select</button>
+            </div>
+          </article>
+
+          <!-- Item 7: Galouti Kebab (Appetizer) -->
+          <article class="menu-card reveal" 
+                   data-category="appetizers" 
+                   data-diet="nonveg"
+                   data-id="galouti-kebab"
+                   data-title="Melt-in-Mouth Galouti Kebab"
+                   data-price="₹470"
+                   data-spice="Royal Aromatic (2/5)"
+                   data-cooking="Smoked with Cloves &amp; Ghee on Ulta Tawa"
+                   data-pairing="Mini Ulta Tawa Paratha"
+                   data-desc="Silky lamb patties infused with 32 rare potli spices, green papaya tenderizer, and smoked with royal cloves. Served atop mini Mughlai ulta tawa parathas."
+                   data-secret="Pounded four times to ensure an effortless silky texture that literally dissolves upon tasting.">
+            <div>
+              <div class="menu-card-header">
+                <h3 class="dish-title">Melt-in-Mouth Galouti Kebab</h3>
+                <span class="dish-price">₹470</span>
+              </div>
+              <p class="dish-desc">
+                Silky lamb patties infused with 32 rare potli spices and smoked with cloves. Served atop mini Mughlai ulta tawa parathas.
+              </p>
+              <div class="dish-badges">
+                <span class="badge badge-special">Chef's Signature</span>
+                <span class="badge badge-nonveg"><i class="fa-solid fa-circle"></i> Non-Veg</span>
+              </div>
+            </div>
+            <div class="dish-action-bar">
+              <span class="action-text"><i class="fa-solid fa-circle-info"></i> Click for recipe details</span>
+              <button class="order-quick-btn" title="Add to Royal Feast"><i class="fa-solid fa-plus"></i> Select</button>
+            </div>
+          </article>
+
+          <!-- Item 8: Dahi Ke Sholay (Appetizer) -->
+          <article class="menu-card reveal" 
+                   data-category="appetizers" 
+                   data-diet="veg"
+                   data-id="dahi-sholay"
+                   data-title="Crispy Dahi Ke Sholay"
+                   data-price="₹320"
+                   data-spice="Mild Tangy (1.5/5)"
+                   data-cooking="Golden Flash Fry"
+                   data-pairing="Tangy Imli Chutney"
+                   data-desc="Crisp golden bread rolls stuffed with spiced hung yogurt, bell peppers, fresh mint, pomegranate pearls, and cracked black pepper."
+                   data-secret="Strained Greek-style desi curd tossed with roasted cumin and crushed green chilies for an unctuous center.">
+            <div>
+              <div class="menu-card-header">
+                <h3 class="dish-title">Crispy Dahi Ke Sholay</h3>
+                <span class="dish-price">₹320</span>
+              </div>
+              <p class="dish-desc">
+                Crisp golden crust rolls stuffed with spiced hung yogurt, bell peppers, fresh mint, and cracked black pepper.
+              </p>
+              <div class="dish-badges">
+                <span class="badge badge-veg"><i class="fa-solid fa-seedling"></i> Veg</span>
+              </div>
+            </div>
+            <div class="dish-action-bar">
+              <span class="action-text"><i class="fa-solid fa-circle-info"></i> Click for recipe details</span>
+              <button class="order-quick-btn" title="Add to Royal Feast"><i class="fa-solid fa-plus"></i> Select</button>
+            </div>
+          </article>
+
+          <!-- Item 9: Khamiri Roti (Breads) -->
+          <article class="menu-card reveal" 
+                   data-category="breads" 
+                   data-diet="veg"
+                   data-id="khamiri-roti"
+                   data-title="Mughlai Khamiri Roti"
+                   data-price="₹75"
+                   data-spice="Mild Sweetness (0/5)"
+                   data-cooking="Clay Tandoor Baked"
+                   data-pairing="Dahi Meat &amp; Keema"
+                   data-desc="Pillowy, traditional natural yeast sourdough bread baked against hot clay tandoor walls, brushed with pure clarified desi butter."
+                   data-secret="Ancient ferment culture maintained in-house for exceptional softness and gut-friendly lightness.">
+            <div>
+              <div class="menu-card-header">
+                <h3 class="dish-title">Mughlai Khamiri Roti</h3>
+                <span class="dish-price">₹75</span>
+              </div>
+              <p class="dish-desc">
+                Pillowy, traditional sourdough bread baked against clay tandoor walls, brushed with clarified desi butter.
+              </p>
+              <div class="dish-badges">
+                <span class="badge badge-veg"><i class="fa-solid fa-seedling"></i> Veg</span>
+              </div>
+            </div>
+            <div class="dish-action-bar">
+              <span class="action-text"><i class="fa-solid fa-circle-info"></i> Click for recipe details</span>
+              <button class="order-quick-btn" title="Add to Royal Feast"><i class="fa-solid fa-plus"></i> Select</button>
+            </div>
+          </article>
+
+          <!-- Item 10: Dum Biryani (Breads & Rice) -->
+          <article class="menu-card reveal" 
+                   data-category="breads" 
+                   data-diet="nonveg"
+                   data-id="dum-biryani"
+                   data-title="Kake Dum Gosht Biryani"
+                   data-price="₹490"
+                   data-spice="Aromatic Medium (2.5/5)"
+                   data-cooking="Dough-Sealed Handi Dum"
+                   data-pairing="Burani Garlic Raita &amp; Salan"
+                   data-desc="Fragrant aged Daawat basmati layered with marinated tender mutton, Kashmiri saffron milk, caramelized shallots, and sealed with dough."
+                   data-secret="Sealed with whole wheat dough rim and steamed slowly on hot tawa so every grain absorbs the mutton broth.">
+            <div>
+              <div class="menu-card-header">
+                <h3 class="dish-title">Kake Dum Gosht Biryani</h3>
+                <span class="dish-price">₹490</span>
+              </div>
+              <p class="dish-desc">
+                Fragrant aged Daawat basmati layered with marinated tender mutton, saffron milk, caramelized shallots, and sealed with dough.
+              </p>
+              <div class="dish-badges">
+                <span class="badge badge-nonveg"><i class="fa-solid fa-circle"></i> Non-Veg</span>
+                <span class="badge badge-gf">GF</span>
+              </div>
+            </div>
+            <div class="dish-action-bar">
+              <span class="action-text"><i class="fa-solid fa-circle-info"></i> Click for recipe details</span>
+              <button class="order-quick-btn" title="Add to Royal Feast"><i class="fa-solid fa-plus"></i> Select</button>
+            </div>
+          </article>
+
+          <!-- Item 11: Kesari Phirni (Dessert) -->
+          <article class="menu-card reveal" 
+                   data-category="desserts" 
+                   data-diet="veg"
+                   data-id="kesari-phirni"
+                   data-title="Kesari Matka Phirni"
+                   data-price="₹160"
+                   data-spice="Sweet Saffron (0/5)"
+                   data-cooking="Slow Reduced in Earthenware"
+                   data-pairing="Post-Feast Digestif"
+                   data-desc="Slow-cooked ground rice pudding flavored with Kashmiri saffron strands, green cardamom, and slivered pistachios served in chilled earthen kulhads."
+                   data-secret="Earthen pots absorb excess moisture, giving the phirni its velvety texture and earthy aroma.">
+            <div>
+              <div class="menu-card-header">
+                <h3 class="dish-title">Kesari Matka Phirni</h3>
+                <span class="dish-price">₹160</span>
+              </div>
+              <p class="dish-desc">
+                Slow-cooked ground rice pudding flavored with Kashmiri saffron strands, green cardamom, and slivered almonds served in chilled earthen kulhads.
+              </p>
+              <div class="dish-badges">
+                <span class="badge badge-veg"><i class="fa-solid fa-seedling"></i> Veg</span>
+                <span class="badge badge-gf">GF</span>
+              </div>
+            </div>
+            <div class="dish-action-bar">
+              <span class="action-text"><i class="fa-solid fa-circle-info"></i> Click for recipe details</span>
+              <button class="order-quick-btn" title="Add to Royal Feast"><i class="fa-solid fa-plus"></i> Select</button>
+            </div>
+          </article>
+
+          <!-- Item 12: Malai Lassi (Drink) -->
+          <article class="menu-card reveal" 
+                   data-category="desserts" 
+                   data-diet="veg"
+                   data-id="malai-lassi"
+                   data-title="Malai Peda Lassi"
+                   data-price="₹140"
+                   data-spice="Sweet &amp; Creamy (0/5)"
+                   data-cooking="Hand Churned with Wooden Madhani"
+                   data-pairing="Served Chilled"
+                   data-desc="Thick, hand-churned Punjabi yogurt drink topped with a thick layer of clotted malai, crumbled Amritsari peda, and damask rose syrup."
+                   data-secret="Churned only in copper containers using organic full-cream curd for dense, luscious mouthfeel.">
+            <div>
+              <div class="menu-card-header">
+                <h3 class="dish-title">Malai Peda Lassi</h3>
+                <span class="dish-price">₹140</span>
+              </div>
+              <p class="dish-desc">
+                Thick, hand-churned Punjabi yogurt drink topped with a thick layer of clotted malai, crumbled Amritsari peda, and rose syrup.
+              </p>
+              <div class="dish-badges">
+                <span class="badge badge-veg"><i class="fa-solid fa-seedling"></i> Veg</span>
+              </div>
+            </div>
+            <div class="dish-action-bar">
+              <span class="action-text"><i class="fa-solid fa-circle-info"></i> Click for recipe details</span>
+              <button class="order-quick-btn" title="Add to Royal Feast"><i class="fa-solid fa-plus"></i> Select</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION & INTERACTIVE HERITAGE ACCORDION BARS -->
+    <section class="about-section section-padding" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-image-wrapper reveal">
+            <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=1200&q=80" 
+                 alt="Chef preparing signature slow-cooked Mughlai degh dishes" 
+                 class="about-main-img">
+            <div class="about-badge-card">
+              <span class="years">1931</span>
+              <p>Born in pre-partition Lahore, perfected in Delhi’s culinary heartland.</p>
+            </div>
+          </div>
+
+          <div class="about-text reveal">
+            <span class="section-eyebrow">Our Living History</span>
+            <h2 class="section-title">Nine Decades of Slow Cooking &amp; Soulful Food</h2>
+            
+            <p style="color: var(--color-text-muted); margin-bottom: 1.25rem;">
+              When our founders migrated to Delhi, they brought along only two treasures: ancestral brass utensils and closely guarded spice formulations. That was the genesis of <strong style="color: var(--color-cream);">Kake Da Hotel</strong>.
+            </p>
+            
+            <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
+              Today, our Malviya Nagar kitchen remains faithful to those foundational rituals. We never rush our curries; the meat is hand-tenderized and slow-cooked in curd for hours without artificial thickeners.
+            </p>
+
+            <!-- INTERACTIVE ACCORDION BARS (CLICKABLE FOR MOTION & DETAILED INFO) -->
+            <div class="heritage-bars-list">
+              
+              <div class="heritage-bar-item active">
+                <div class="heritage-bar-header">
+                  <div class="heritage-bar-title">
+                    <i class="fa-solid fa-fire"></i>
+                    <span>Wood &amp; Real Coal Tandoors</span>
+                  </div>
+                  <div class="heritage-bar-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+                </div>
+                <div class="heritage-bar-body">
+                  We refuse gas-powered simulated ovens. Every piece of chicken, mutton seekh, and bread is baked against red-hot clay walls heated strictly with babool coal wood.
+                </div>
+              </div>
+
+              <div class="heritage-bar-item">
+                <div class="heritage-bar-header">
+                  <div class="heritage-bar-title">
+                    <i class="fa-solid fa-mortar-pestle"></i>
+                    <span>32-Spice Ancestral Potli Formula</span>
+                  </div>
+                  <div class="heritage-bar-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+                </div>
+                <div class="heritage-bar-body">
+                  Whole Kashmiri chili, green cardamom, mace, nutmeg, and black cloves are stone-pounded fresh every morning to preserve natural essential oils.
+                </div>
+              </div>
+
+              <div class="heritage-bar-item">
+                <div class="heritage-bar-header">
+                  <div class="heritage-bar-title">
+                    <i class="fa-solid fa-cow"></i>
+                    <span>Pure Desi Ghee Simmering</span>
+                  </div>
+                  <div class="heritage-bar-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+                </div>
+                <div class="heritage-bar-body">
+                  Our gravies are prepared strictly in farm-churned clarified butter (Desi Ghee). No palm oils or commercial gravy pastes are ever allowed into our brass deghs.
+                </div>
+              </div>
+
+              <div class="heritage-bar-item">
+                <div class="heritage-bar-header">
+                  <div class="heritage-bar-title">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Atithi Devo Bhava Hospitality</span>
+                  </div>
+                  <div class="heritage-bar-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+                </div>
+                <div class="heritage-bar-body">
+                  Every guest is family. Generous Punjabi portions, sizzling hot service, and customized spice tolerances ensure unmatched culinary satisfaction.
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery-section section-padding" id="gallery">
+      <div class="container">
+        <div class="text-center reveal">
+          <span class="section-eyebrow">Visual Feast</span>
+          <h2 class="section-title">Glimpses of Flavor &amp; Warmth</h2>
+          <p class="section-subtitle">
+            Click any picture to open high-definition culinary views and ambience captures.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Item 1 -->
+          <div class="gallery-item span-2-row reveal" data-caption="Traditional slow-cooked Mutton Handi bubbling over charcoal embers">
+            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80" alt="Slow-cooked Indian Curry">
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Signature Degh</span>
+              <span class="gallery-caption">Slow Cooked Dahi Meat</span>
+              <span class="gallery-click-hint"><i class="fa-solid fa-expand"></i> Click to enlarge</span>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="gallery-item span-2-col reveal" data-caption="Warm ambient dining hall welcoming families, groups, and friends in Malviya Nagar">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" alt="Restaurant Interior in Malviya Nagar">
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Atmosphere</span>
+              <span class="gallery-caption">Rustic Dining Hall</span>
+              <span class="gallery-click-hint"><i class="fa-solid fa-expand"></i> Click to enlarge</span>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="gallery-item reveal" data-caption="Smoky Bhatti Chicken skewers roasted fresh in our traditional clay oven">
+            <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=800&q=80" alt="Tandoori Kebabs">
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Clay Oven</span>
+              <span class="gallery-caption">Tandoori Kebabs</span>
+              <span class="gallery-click-hint"><i class="fa-solid fa-expand"></i> Click to enlarge</span>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="gallery-item reveal" data-caption="Freshly baked crispy garlic naan and artisan Khamiri rotis straight from the tandoor">
+            <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=800&q=80" alt="Fresh Tandoori Naan">
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Fresh Breads</span>
+              <span class="gallery-caption">Garlic Butter Naan</span>
+              <span class="gallery-click-hint"><i class="fa-solid fa-expand"></i> Click to enlarge</span>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="gallery-item reveal" data-caption="Slow-simmered velvety Dal Makhani loaded with white butter and farm cream">
+            <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80" alt="Creamy Dal Makhani">
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Comfort Food</span>
+              <span class="gallery-caption">Overnight Dal Makhani</span>
+              <span class="gallery-click-hint"><i class="fa-solid fa-expand"></i> Click to enlarge</span>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="gallery-item reveal" data-caption="Aromatic Dum Gosht Biryani served in handi with spiced burani raita">
+            <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80" alt="Dum Gosht Biryani">
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Royalty</span>
+              <span class="gallery-caption">Sealed Handi Biryani</span>
+              <span class="gallery-click-hint"><i class="fa-solid fa-expand"></i> Click to enlarge</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVATIONS SECTION -->
+    <section class="reservation-section section-padding" id="reservations">
+      <div class="container">
+        <div class="reservation-container reveal">
+          <div class="text-center">
+            <span class="section-eyebrow">Book Your Experience</span>
+            <h2 class="section-title">Reserve a Table</h2>
+            <p class="section-subtitle" style="margin-bottom: 2rem;">
+              Planning a family feast or an intimate evening? Let us reserve your table and warm the deghs.
+            </p>
+          </div>
+
+          <form id="reservationForm" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="resName">Full Name *</label>
+                <input type="text" id="resName" class="form-control" placeholder="e.g. Rajesh Khurana" required>
+              </div>
+
+              <div class="form-group">
+                <label for="resPhone">Phone Number *</label>
+                <input type="tel" id="resPhone" class="form-control" placeholder="e.g. +91 98765 43210" required>
+              </div>
+
+              <div class="form-group">
+                <label for="resDate">Reservation Date *</label>
+                <input type="date" id="resDate" class="form-control" required>
+              </div>
+
+              <div class="form-group">
+                <label for="resTime">Preferred Dining Slot *</label>
+                <select id="resTime" class="form-control" required>
+                  <option value="" disabled selected>Select dining slot</option>
+                  <option value="12:30 PM">Lunch - 12:30 PM</option>
+                  <option value="01:30 PM">Lunch - 01:30 PM</option>
+                  <option value="02:30 PM">Lunch - 02:30 PM</option>
+                  <option value="07:30 PM">Dinner - 07:30 PM</option>
+                  <option value="08:30 PM">Dinner - 08:30 PM</option>
+                  <option value="09:30 PM">Dinner - 09:30 PM</option>
+                  <option value="10:30 PM">Dinner - 10:30 PM</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="resGuests">Party Size *</label>
+                <select id="resGuests" class="form-control" required>
+                  <option value="2 Guests">2 Guests (Table for Two)</option>
+                  <option value="3-4 Guests" selected>3 - 4 Guests (Family Table)</option>
+                  <option value="5-8 Guests">5 - 8 Guests (Group Feast)</option>
+                  <option value="9+ Guests">9+ Guests (Large Celebration / Banquet)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="resOccasion">Occasion</label>
+                <select id="resOccasion" class="form-control">
+                  <option value="Casual Dining">Casual Dining</option>
+                  <option value="Birthday Celebration">Birthday Celebration</option>
+                  <option value="Anniversary">Anniversary Dinner</option>
+                  <option value="Business Dinner">Business Dinner</option>
+                  <option value="Family Reunion">Family Gathering</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="resRequests">Special Dietary / Seating Requests</label>
+                <textarea id="resRequests" class="form-control" placeholder="Any preferences, spice tolerance instructions, or high-chair requirements..."></textarea>
+              </div>
+
+              <div class="form-group full-width text-center" style="margin-top: 1rem;">
+                <button type="submit" class="btn btn-primary" style="width: 100%; max-width: 340px; margin: 0 auto;">
+                  <i class="fa-solid fa-check"></i> Confirm Reservation
+                </button>
+                <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 0.75rem;">
+                  Instant confirmation via WhatsApp &amp; SMS. No booking fees.
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews-section section-padding" id="reviews">
+      <div class="container">
+        <div class="text-center reveal">
+          <span class="section-eyebrow">Customer Love</span>
+          <h2 class="section-title">Words from Our Food Patrons</h2>
+          <p class="section-subtitle">
+            Generations of families have celebrated their milestones with our gravies and kebabs.
+          </p>
+        </div>
+
+        <!-- Rating Summary Bar -->
+        <div class="reviews-bar-summary reveal">
+          <div style="text-align: center;">
+            <div class="score">4.8 / 5.0</div>
+            <div class="review-stars" style="justify-content: center; margin-top: 0.25rem;">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+          </div>
+          <div style="font-size: 0.9rem; color: var(--color-text-muted); max-width: 320px;">
+            Based on <strong>18,500+ verified guest reviews</strong> across Google, Zomato, and TripAdvisor.
+          </div>
+          <a href="#reservations" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+            Join the Table
+          </a>
+        </div>
+
+        <div class="reviews-grid">
+          <!-- Review 1 -->
+          <article class="review-card reveal" data-quote="dahi-meat">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-body">
+              "The Dahi Meat at Kake Da Hotel Malviya Nagar is unrivaled. It's rich without being greasy, and the meat melts off the bone like silk. Takes me straight back to my childhood dinners in Delhi."
+            </p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">VS</div>
+              <div>
+                <h4 class="reviewer-name">Vikramaditya Sahni</h4>
+                <span class="reviewer-meta">South Delhi Food Critic • Dined May 2024</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Review 2 -->
+          <article class="review-card reveal" data-quote="dal-makhani">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-body">
+              "Authentic Punjabi taste! You can smell the aromatic charcoal smoke from the street. Their Dal Makhani and Khamiri Roti pairing is out of this world. Outstanding hospitality from the staff!"
+            </p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">PM</div>
+              <div>
+                <h4 class="reviewer-name">Priyanka Malhotra</h4>
+                <span class="reviewer-meta">Resident, Malviya Nagar • Dined June 2024</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Review 3 -->
+          <article class="review-card reveal" data-quote="catering">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-body">
+              "Ordered catering for 40 guests on my father's 70th birthday. Everyone raved about the Galouti kebabs and Butter Chicken. True masters of Mughlai culinary craft."
+            </p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">AK</div>
+              <div>
+                <h4 class="reviewer-name">Amanpreet Kapur</h4>
+                <span class="reviewer-meta">Family Banquet Host • Dined July 2024</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Banquet & Party Callout Bar -->
+        <div class="cta-banner-bar reveal">
+          <div>
+            <h3>Hosting a Celebration or Private Feast?</h3>
+            <p>We provide hot degh catering &amp; private dining room reservations for 15 to 150 guests.</p>
+          </div>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="tel:+919811234567" class="btn btn-gold">
+              <i class="fa-solid fa-phone"></i> Call Party Manager
+            </a>
+            <a href="#reservations" class="btn btn-secondary">
+              Book Group Table
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Col -->
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <span class="logo-title">
+              <i class="fa-solid fa-crown" style="color: var(--color-accent-gold); font-size: 1.1rem;"></i> 
+              Kake Da Hotel
+            </span>
+            <span class="logo-sub">Malviya Nagar • New Delhi</span>
+          </div>
+          <p class="footer-desc">
+            A celebrated Delhi landmark keeping authentic North Indian, Mughlai, and Punjabi dhaba legacy burning bright in every handcrafted copper handi.
+          </p>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noreferrer" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://tripadvisor.com" target="_blank" rel="noreferrer" class="social-link" aria-label="TripAdvisor"><i class="fa-solid fa-utensils"></i></a>
+          </div>
+        </div>
+
+        <!-- Hours Col -->
+        <div>
+          <h4 class="footer-heading">Opening Hours</h4>
+          <table class="hours-table">
+            <tbody>
+              <tr>
+                <td>Monday – Thursday</td>
+                <td>12:00 PM – 11:30 PM</td>
+              </tr>
+              <tr>
+                <td>Friday – Saturday</td>
+                <td>12:00 PM – 12:00 AM</td>
+              </tr>
+              <tr>
+                <td>Sunday</td>
+                <td>12:00 PM – 12:00 AM</td>
+              </tr>
+              <tr>
+                <td>Takeaway &amp; Delivery</td>
+                <td>Open All Day</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Contact Col -->
+        <div>
+          <h4 class="footer-heading">Find Our Table</h4>
+          <ul class="contact-list">
+            <li class="contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Shop 4 &amp; 5, Main Market, Malviya Nagar, New Delhi, Delhi 110017</span>
+            </li>
+            <li class="contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:+919811234567" style="color: var(--color-cream); font-weight: 600;">+91 98112 34567</a>
+            </li>
+            <li class="contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>table@kakeda-malviyanagar.com</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Map Location Preview Col -->
+        <div>
+          <h4 class="footer-heading">Location Map</h4>
+          <div class="map-preview" id="mapTrigger" title="Click to view directions">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <span>Malviya Nagar Market, New Delhi</span>
+            <a href="https://maps.google.com/?q=Malviya+Nagar+New+Delhi" target="_blank" rel="noopener noreferrer">
+              Get Driving Directions &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="yearSpan">2024</span> Kake Da Hotel (Malviya Nagar). All rights reserved.</p>
+        <p>Crafted for food lovers with passion &amp; pure desi ghee.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY BOTTOM ACTION BAR -->
+  <div class="mobile-bottom-bar">
+    <div class="mobile-bottom-bar-inner">
+      <a href="tel:+919811234567" class="btn btn-secondary">
+        <i class="fa-solid fa-phone"></i> Call
+      </a>
+      <a href="#reservations" class="btn btn-primary">
+        <i class="fa-solid fa-calendar-check"></i> Book Table
+      </a>
+    </div>
+  </div>
+
+  <!-- FLOATING QUICK FEAST / CART BAR -->
+  <div class="floating-feast-bar" id="floatingFeastBar">
+    <div class="feast-count-bubble" id="feastCount">0</div>
+    <div>
+      <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-cream);">Selected Feast Dishes</div>
+      <div style="font-size: 0.75rem; color: var(--color-accent-gold);" id="feastSubtitle">Ready to book table with order</div>
+    </div>
+    <a href="#reservations" class="btn btn-primary" style="padding: 0.4rem 0.9rem; font-size: 0.8rem; margin-left: 0.5rem;">
+      Book Now
+    </a>
+  </div>
+
+  <!-- INTERACTIVE DISH DETAILS MODAL -->
+  <div class="dish-modal-backdrop" id="dishModal">
+    <div class="dish-modal-content" role="dialog" aria-modal="true">
+      <button class="dish-modal-close" id="dishModalClose" aria-label="Close details">&times;</button>
+      
+      <div class="dish-modal-header">
+        <div class="section-eyebrow" style="margin-bottom: 0.35rem;" id="modalCategory">Signature Mains</div>
+        <h3 style="font-family: var(--font-serif); font-size: 1.75rem; color: var(--color-cream);" id="modalTitle">Dahi Meat (Handi Special)</h3>
+        <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
+          <span style="font-size: 1.35rem; font-weight: 800; color: var(--color-accent-gold);" id="modalPrice">₹495</span>
+          <span id="modalDietBadge"></span>
+        </div>
+      </div>
+
+      <div class="dish-modal-body">
+        <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.6;" id="modalDesc">
+          The legendary slow-cooked tender goat meat stewed in whipped curd, whole spices, and desi ghee.
+        </p>
+
+        <div class="dish-feature-grid">
+          <div class="dish-feature-box">
+            <div class="label"><i class="fa-solid fa-pepper-hot"></i> Spice Profile</div>
+            <div class="value" id="modalSpice">Medium Spiced (3/5)</div>
+          </div>
+          <div class="dish-feature-box">
+            <div class="label"><i class="fa-solid fa-fire-burner"></i> Cooking Technique</div>
+            <div class="value" id="modalCooking">4-Hour Slow Copper Handi</div>
+          </div>
+          <div class="dish-feature-box">
+            <div class="label"><i class="fa-solid fa-bread-slice"></i> Recommended Pairing</div>
+            <div class="value" id="modalPairing">Mughlai Khamiri Roti &amp; Sirka Pyaz</div>
+          </div>
+          <div class="dish-feature-box">
+            <div class="label"><i class="fa-solid fa-award"></i> Heritage Standard</div>
+            <div class="value">100% Pure Desi Ghee</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(217, 119, 6, 0.08); border: 1px dashed rgba(217, 119, 6, 0.4); padding: 1rem; border-radius: var(--radius-sm); margin-top: 1rem;">
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--color-accent-gold); margin-bottom: 0.25rem;">
+            <i class="fa-solid fa-key"></i> ANCESTRAL RECIPE SECRET
+          </div>
+          <p style="font-size: 0.88rem; color: var(--color-cream); margin-bottom: 0;" id="modalSecret">
+            Tenderized exclusively in curd without tomatoes, releasing natural collagen and thick gravy richness over charcoal embers.
+          </p>
+        </div>
+      </div>
+
+      <div class="dish-modal-footer">
+        <button class="btn btn-secondary" id="modalAddFeastBtn">
+          <i class="fa-solid fa-plus"></i> Add to Feast
+        </button>
+        <a href="#reservations" class="btn btn-primary" id="modalReserveBtn">
+          <i class="fa-solid fa-calendar-check"></i> Reserve Table for This Dish
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX CONTAINER FOR GALLERY -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Image Preview">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox">&times;</button>
+      <img id="lightboxImg" src="" alt="Enlarged photo view">
+      <p id="lightboxCaption" class="lightbox-caption-text"></p>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMsg">Action executed successfully!</span>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC & INTERACTION ENGINE -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Dynamic Year
+      const yearSpan = document.getElementById('yearSpan');
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+      // Selected items state for interactive feast bar
+      const selectedFeastItems = new Set();
+      const floatingFeastBar = document.getElementById('floatingFeastBar');
+      const feastCount = document.getElementById('feastCount');
+
+      // 1. Particle Canvas Motion in Hero Section
+      initHeroCanvas();
+
+      // 2. Mobile Drawer Navigation Toggle
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const mobileLinks = document.querySelectorAll('.mob-link');
+
+      if (hamburgerBtn && mobileDrawer) {
+        hamburgerBtn.addEventListener('click', () => {
+          const isOpen = mobileDrawer.classList.toggle('active');
+          hamburgerBtn.classList.toggle('open');
+          hamburgerBtn.setAttribute('aria-expanded', isOpen);
+        });
+
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileDrawer.classList.remove('active');
+            hamburgerBtn.classList.remove('open');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // 3. Interactive Hero Stats Bars Click & Motion
+      const interactiveStatBars = document.querySelectorAll('.interactive-stat-bar');
+      interactiveStatBars.forEach(bar => {
+        bar.addEventListener('click', () => {
+          const type = bar.getAttribute('data-info');
+          if (type === 'legacy') {
+            document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+            showToast('Opening 93-year Heritage timeline and ancestral cooking rituals.');
+          } else if (type === 'purity') {
+            document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+            // Highlight the spice accordion
+            const items = document.querySelectorAll('.heritage-bar-item');
+            items.forEach((item, idx) => {
+              if (idx === 1 || idx === 2) item.classList.add('active');
+            });
+            showToast('Loaded Desi Ghee & 32 Potli Spices formulation details.');
+          } else if (type === 'rating') {
+            document.querySelector('#reviews')?.scrollIntoView({ behavior: 'smooth' });
+            showToast('Displaying 18,500+ verified customer experiences.');
+          }
+        });
+      });
+
+      // 4. Interactive Heritage Accordion Bars (Click for motion & expand)
+      const heritageBars = document.querySelectorAll('.heritage-bar-item');
+      heritageBars.forEach(bar => {
+        bar.addEventListener('click', () => {
+          const isActive = bar.classList.contains('active');
+          // Allow toggle or accordion mode
+          heritageBars.forEach(b => b.classList.remove('active'));
+          if (!isActive) {
+            bar.classList.add('active');
+          }
+        });
+      });
+
+      // 5. Menu Category Tabs & Filtering Logic
+      const menuTabs = document.querySelectorAll('.menu-tab-btn');
+      const menuCards = document.querySelectorAll('.menu-card');
+      const dietChips = document.querySelectorAll('.diet-chip');
+      const searchInput = document.getElementById('menuSearchInput');
+
+      let currentCategory = 'mains';
+      let currentDiet = 'all';
+      let currentSearch = '';
+
+      function filterMenu() {
+        let visibleCount = 0;
+        menuCards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          const diet = card.getAttribute('data-diet');
+          const title = (card.getAttribute('data-title') || '').toLowerCase();
+          const desc = (card.querySelector('.dish-desc')?.textContent || '').toLowerCase();
+
+          const matchesCat = (currentCategory === 'all' || cat === currentCategory);
+          const matchesDiet = (currentDiet === 'all' || diet === currentDiet);
+          const matchesSearch = !currentSearch || title.includes(currentSearch) || desc.includes(currentSearch);
+
+          if (matchesCat && matchesDiet && matchesSearch) {
+            card.style.display = 'flex';
+            visibleCount++;
+            gsap.fromTo(card, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.35 });
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      menuTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          menuTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          currentCategory = tab.getAttribute('data-filter');
+          filterMenu();
+        });
+      });
+
+      dietChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          dietChips.forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          currentDiet = chip.getAttribute('data-diet');
+          filterMenu();
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentSearch = e.target.value.trim().toLowerCase();
+          // If searching, switch to all categories if needed
+          if (currentSearch.length > 0 && currentCategory !== 'all') {
+            menuTabs.forEach(t => t.classList.remove('active'));
+            document.querySelector('.menu-tab-btn[data-filter="all"]')?.classList.add('active');
+            currentCategory = 'all';
+          }
+          filterMenu();
+        });
+      }
+
+      // Initialize default menu filter (mains)
+      filterMenu();
+
+      // 6. Interactive Dish Modal (Clicking dish card / bar opens full motion details)
+      const dishModal = document.getElementById('dishModal');
+      const dishModalClose = document.getElementById('dishModalClose');
+      const modalCategory = document.getElementById('modalCategory');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalPrice = document.getElementById('modalPrice');
+      const modalDesc = document.getElementById('modalDesc');
+      const modalSpice = document.getElementById('modalSpice');
+      const modalCooking = document.getElementById('modalCooking');
+      const modalPairing = document.getElementById('modalPairing');
+      const modalSecret = document.getElementById('modalSecret');
+      const modalDietBadge = document.getElementById('modalDietBadge');
+      const modalAddFeastBtn = document.getElementById('modalAddFeastBtn');
+      let activeModalDishTitle = '';
+
+      menuCards.forEach(card => {
+        // Handle whole card click
+        card.addEventListener('click', (e) => {
+          // If user clicked the quick select button directly
+          if (e.target.closest('.order-quick-btn')) {
+            e.stopPropagation();
+            toggleFeastItem(card);
+            return;
+          }
+
+          const title = card.getAttribute('data-title');
+          const price = card.getAttribute('data-price');
+          const desc = card.getAttribute('data-desc');
+          const spice = card.getAttribute('data-spice');
+          const cooking = card.getAttribute('data-cooking');
+          const pairing = card.getAttribute('data-pairing');
+          const secret = card.getAttribute('data-secret');
+          const cat = card.getAttribute('data-category');
+          const diet = card.getAttribute('data-diet');
+
+          activeModalDishTitle = title;
+          modalTitle.textContent = title;
+          modalPrice.textContent = price;
+          modalDesc.textContent = desc;
+          modalSpice.textContent = spice;
+          modalCooking.textContent = cooking;
+          modalPairing.textContent = pairing;
+          modalSecret.textContent = secret;
+          modalCategory.textContent = cat.toUpperCase() + ' • HERITAGE SPECIAL';
+
+          if (diet === 'veg') {
+            modalDietBadge.innerHTML = '<span class="badge badge-veg"><i class="fa-solid fa-seedling"></i> 100% Vegetarian</span>';
+          } else {
+            modalDietBadge.innerHTML = '<span class="badge badge-nonveg"><i class="fa-solid fa-circle"></i> Non-Vegetarian</span>';
+          }
+
+          dishModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      function closeDishModal() {
+        dishModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (dishModalClose) dishModalClose.addEventListener('click', closeDishModal);
+      if (dishModal) {
+        dishModal.addEventListener('click', (e) => {
+          if (e.target === dishModal) closeDishModal();
+        });
+      }
+
+      if (modalAddFeastBtn) {
+        modalAddFeastBtn.addEventListener('click', () => {
+          if (activeModalDishTitle) {
+            selectedFeastItems.add(activeModalDishTitle);
+            updateFeastBar();
+            showToast(`Added "${activeModalDishTitle}" to your Feast selection!`);
+            closeDishModal();
+          }
+        });
+      }
+
+      function toggleFeastItem(card) {
+        const title = card.getAttribute('data-title');
+        const btn = card.querySelector('.order-quick-btn');
+        if (selectedFeastItems.has(title)) {
+          selectedFeastItems.delete(title);
+          if (btn) btn.innerHTML = '<i class="fa-solid fa-plus"></i> Select';
+          showToast(`Removed "${title}" from your Feast.`);
+        } else {
+          selectedFeastItems.add(title);
+          if (btn) btn.innerHTML = '<i class="fa-solid fa-check"></i> Selected';
+          showToast(`Added "${title}" to your Feast.`);
+        }
+        updateFeastBar();
+      }
+
+      function updateFeastBar() {
+        const count = selectedFeastItems.size;
+        if (feastCount) feastCount.textContent = count;
+        if (count > 0) {
+          floatingFeastBar.classList.add('visible');
+          const sub = document.getElementById('feastSubtitle');
+          if (sub) sub.textContent = `${count} dish${count > 1 ? 'es' : ''} requested for booking`;
+        } else {
+          floatingFeastBar.classList.remove('visible');
+        }
+      }
+
+      // 7. Lightbox for Gallery
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      const lightboxModal = document.getElementById('lightboxModal');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const img = item.querySelector('img');
+          const caption = item.getAttribute('data-caption') || item.querySelector('.gallery-caption')?.textContent;
+          if (lightboxImg && img) lightboxImg.src = img.src;
+          if (lightboxCaption) lightboxCaption.textContent = caption;
+          lightboxModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      function closeLightbox() {
+        lightboxModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+      if (lightboxModal) {
+        lightboxModal.addEventListener('click', (e) => {
+          if (e.target === lightboxModal) closeLightbox();
+        });
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (lightboxModal && lightboxModal.classList.contains('active')) closeLightbox();
+          if (dishModal && dishModal.classList.contains('active')) closeDishModal();
+        }
+      });
+
+      // 8. Reservation Form Submission
+      const reservationForm = document.getElementById('reservationForm');
+      const dateInput = document.getElementById('resDate');
+      if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+        dateInput.value = today;
+      }
+
+      if (reservationForm) {
+        reservationForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('resName').value.trim();
+          const phone = document.getElementById('resPhone').value.trim();
+          const date = document.getElementById('resDate').value;
+          const time = document.getElementById('resTime').value;
+          const guests = document.getElementById('resGuests').value;
+
+          if (!name || !phone || !date || !time) {
+            showToast('Please fill out all required fields marked with *', true);
+            return;
+          }
+
+          let msg = `Table reserved for ${name} (${guests}) on ${date} at ${time}!`;
+          if (selectedFeastItems.size > 0) {
+            msg += ` Pre-selected: ${Array.from(selectedFeastItems).join(', ')}`;
+          }
+          showToast(msg);
+          reservationForm.reset();
+          if (dateInput) dateInput.value = new Date().toISOString().split('T')[0];
+        });
+      }
+
+      // 9. Toast Notification Handler
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      let toastTimer = null;
+
+      function showToast(message, isError = false) {
+        if (!toast || !toastMsg) return;
+        toastMsg.textContent = message;
+        toast.style.background = isError ? '#b91c1c' : '#15803d';
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('show');
+        }, 4800);
+      }
+
+      // 10. GSAP ScrollTrigger Animations & Navigation tracking
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach(elem => {
+          gsap.fromTo(elem, 
+            { opacity: 0, y: 35 }, 
+            { 
+              opacity: 1, 
+              y: 0, 
+              duration: 0.85, 
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: elem,
+                start: 'top 88%',
+                toggleActions: 'play none none none'
+              }
+            }
+          );
+        });
+
+        // Sticky Navbar shadow effect on scroll
+        const topNav = document.getElementById('topNav');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 40) {
+            topNav.style.boxShadow = '0 6px 25px rgba(0,0,0,0.7)';
+            topNav.style.borderBottomColor = 'rgba(217, 119, 6, 0.3)';
+          } else {
+            topNav.style.boxShadow = 'none';
+            topNav.style.borderBottomColor = 'rgba(255, 255, 255, 0.07)';
+          }
+        });
+      }
+
+      // 11. Hero Background Canvas Animation (Ember sparks & golden aroma particles)
+      function initHeroCanvas() {
+        const canvas = document.getElementById('heroCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let width = (canvas.width = window.innerWidth);
+        let height = (canvas.height = window.innerHeight);
+
+        window.addEventListener('resize', () => {
+          width = canvas.width = window.innerWidth;
+          height = canvas.height = window.innerHeight;
+        });
+
+        const particles = [];
+        const particleCount = 45;
+
+        for (let i = 0; i < particleCount; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius: Math.random() * 2 + 0.5,
+            speedY: Math.random() * 0.6 + 0.2,
+            speedX: (Math.random() - 0.5) * 0.4,
+            opacity: Math.random() * 0.7 + 0.2,
+            fade: Math.random() * 0.008 + 0.003
+          });
+        }
+
+        function render() {
+          ctx.clearRect(0, 0, width, height);
+
+          particles.forEach(p => {
+            p.y -= p.speedY;
+            p.x += p.speedX;
+            p.opacity -= p.fade;
+
+            if (p.opacity <= 0 || p.y < 0) {
+              p.x = Math.random() * width;
+              p.y = height + 10;
+              p.opacity = Math.random() * 0.7 + 0.3;
+            }
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(245, 158, 11, ${p.opacity})`;
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = '#F59E0B';
+            ctx.fill();
+          });
+
+          requestAnimationFrame(render);
+        }
+
+        render();
+      }
+    });
+  </script>
+</body>
+</html>
